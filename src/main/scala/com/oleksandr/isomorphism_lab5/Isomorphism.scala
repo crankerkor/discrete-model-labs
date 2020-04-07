@@ -1,3 +1,8 @@
+package com.oleksandr.isomorphism_lab5
+
+
+import com.oleksandr.{Edge, Graph}
+
 class Isomorphism(isomorphicGraph: Graph) {
   var general: Boolean = false
 
@@ -49,8 +54,7 @@ class Isomorphism(isomorphicGraph: Graph) {
     var j = m
     while (i < j) {
       graph.swap(graph.getVertices.toSeq(i), graph.getVertices.toSeq(j))
-      i += 1
-      j -= 1
+      i += 1; j -= 1
     }
   }
 }

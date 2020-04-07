@@ -1,8 +1,9 @@
+package com.oleksandr.streams_lab3
 
 object StreamWork {
   val T = 7
   val N = 6
-  val Sr: Array[Kpp] = new Array[Kpp](N)
+  val Sr: Array[KeyPoint] = new Array[KeyPoint](N)
   var maxTer: Int = 0
 
   def fillThread(): Seq[Stream] = {
@@ -22,7 +23,7 @@ object StreamWork {
 
 
     for (i <- 0 until N) {
-      Sr(i) = Kpp(i, 0, 0)
+      Sr(i) = KeyPoint(i, 0, 0)
     }
 
     for (i <- 0 until N)
@@ -53,7 +54,7 @@ object StreamWork {
 
   case class Stream(a: Int, b: Int, c: Int)
 
-  case class Kpp(name: Int, var input: Int, var output: Int) {
+  case class KeyPoint(name: Int, var input: Int, var output: Int) {
     var capacity: Int = 0
   }
 

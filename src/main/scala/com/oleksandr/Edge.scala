@@ -1,3 +1,5 @@
+package com.oleksandr
+
 import scala.collection.mutable
 
 case class Edge(var vertex1: String, var vertex2: String, wage: Integer) {

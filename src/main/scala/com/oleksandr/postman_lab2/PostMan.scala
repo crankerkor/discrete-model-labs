@@ -1,3 +1,7 @@
+package com.oleksandr.postman_lab2
+
+import com.oleksandr.{Edge, Graph}
+
 import scala.collection.mutable.ListBuffer
 
 class PostMan(graph: Graph) {
@@ -31,13 +35,11 @@ class PostMan(graph: Graph) {
   }
 
   def addToCycle(cycle: ListBuffer[Edge], edgesCopy: ListBuffer[Edge]): Unit = {
-    if (edgesCopy.nonEmpty) {
-      if (!cycle.contains(edgesCopy.head) && areConnected(cycle.last, edgesCopy)) {
-        cycle += edgesCopy.head
-        edges -= edgesCopy.head
-        addToCycle(cycle, edgesCopy.tail)
-      } else addToCycle(cycle, edgesCopy.tail)
-    } else println()
+    if (edgesCopy.nonEmpty) if (!cycle.contains(edgesCopy.head) && areConnected(cycle.last, edgesCopy)) {
+      cycle += edgesCopy.head
+      edges -= edgesCopy.head
+      addToCycle(cycle, edgesCopy.tail)
+    } else addToCycle(cycle, edgesCopy.tail) else println()
   }
 
   def mergeCycles(): ListBuffer[Edge] = {

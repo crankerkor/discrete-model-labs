@@ -1,6 +1,9 @@
+package com.oleksandr.salesman_lab4
+
+import com.oleksandr.{Edge, Graph}
+
 import scala.collection.mutable.ListBuffer
 import scala.util.Random
-import util.control.Breaks._
 
 class Salesman(graph: Graph) {
   var cycle = new ListBuffer[Edge]
@@ -122,6 +125,5 @@ class Salesman(graph: Graph) {
     if (edge1.vertex2 == edge2.vertex1) true
     else false
   }
-
 
 }

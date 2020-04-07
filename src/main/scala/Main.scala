@@ -1,13 +1,19 @@
+import com.oleksandr.isomorphism_lab5.Isomorphism
+import com.oleksandr.postman_lab2.PostMan
+import com.oleksandr.prim_lab1.Prim
+import com.oleksandr.salesman_lab4.Salesman
+import com.oleksandr.{Edge, Graph}
+
 import scala.collection.mutable.ListBuffer
 
 object Main {
   def main(args: Array[String]): Unit = {
     val graph = new Graph(fillPostManGraph())
-    /*new Prim(graph).findPrim()*/
+    new Prim(graph).findPrim()
 
-    /*new PostMan(graph).postManPath()*/
+    new PostMan(graph).postManPath()
 
-    //new Salesman(new Graph(fillSalesmanGraph())).gamiltonCycle()
+    new Salesman(new com.oleksandr.Graph(fillSalesmanGraph())).gamiltonCycle()
 
     val isomorph = new Graph(fillIsomorphicGraph())
     val isomorphic = new Graph(fill2IsomorphicGraph())

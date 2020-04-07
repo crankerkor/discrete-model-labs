@@ -1,3 +1,7 @@
+package com.oleksandr.prim_lab1
+
+
+import com.oleksandr.{Edge, Graph}
 
 import scala.collection.mutable.ListBuffer
 
@@ -49,7 +53,5 @@ class Prim(primGraph: Graph) {
     vertices -= nextEdge.vertex1
     vertices -= nextEdge.vertex2
   }
-
-
 
 }
