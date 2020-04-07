@@ -2,7 +2,7 @@ package com.oleksandr
 
 import scala.collection.mutable
 
-case class Edge(var vertex1: String, var vertex2: String, wage: Integer) {
+case class Edge(var vertex1: String, var vertex2: String, wage: Integer = 1) {
   def compareVertices(that: Edge): Boolean = {
     if (this.vertex1 == that.vertex1
       || this.vertex2 == that.vertex1

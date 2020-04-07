@@ -1,26 +1,39 @@
 package com.oleksandr.streams_lab3
 
+import scala.collection.mutable.ListBuffer
+import scala.io.Source
+
 object StreamWork {
   val T = 7
   val N = 6
   val Sr: Array[KeyPoint] = new Array[KeyPoint](N)
   var maxTer: Int = 0
 
+  private val fullPath = "C:\\Users\\oleksandr_lutsenko\\Desktop\\graphs\\src\\main\\scala\\"
+
   def fillThread(): Seq[Stream] = {
-    Seq(Stream(4, 0, 3)
-    ,Stream(4, 1, 5)
-    ,Stream(0, 3, 7)
-    ,Stream(1, 2, 4)
-    ,Stream(2, 5, 7)
-    ,Stream(4, 3, 8)
-    ,Stream(3, 5, 9)
-    )
+
+    readFromFile("streams.txt").toSeq
+  }
+
+  def readFromFile(filePath: String): ListBuffer[Stream] = {
+    val streams = new ListBuffer[Stream]
+
+    val bufferedSource = Source.fromFile(fullPath + filePath)
+    for (line <- bufferedSource.getLines) {
+      val edgeParams = line.split(" ")
+        streams += Stream(edgeParams(0).toInt, edgeParams(1).toInt, edgeParams(2).toInt)
+    }
+
+    bufferedSource.close
+
+    println(streams)
+    streams
   }
 
   def main(args: Array[String]): Unit = {
 
     val thread = fillThread()
-
 
     for (i <- 0 until N) {
       Sr(i) = KeyPoint(i, 0, 0)
@@ -48,7 +61,7 @@ object StreamWork {
         if (thread(j).b == i)
           Sr(i).capacity -= Math.min(thread(j).c, Sr(thread(j).a).capacity)
 
-    System.out.println("Thread: " + maxTer)
+    println("Thread max capacity: " + maxTer)
 
   }
 

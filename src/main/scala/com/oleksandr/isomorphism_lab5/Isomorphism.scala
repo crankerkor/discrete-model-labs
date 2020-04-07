@@ -26,15 +26,12 @@ class Isomorphism(isomorphicGraph: Graph) {
       else isomorphicGraph.getVertices.toSeq(initialVertices.toSeq.indexOf(edge.vertex2))
     }
 
-    println(graph.getVertices, " ", isomorphicGraph.getVertices)
-
   }
 
   def antiFlex(graph: Graph, m: Int): Unit = {
 
     if (m == 0) {
       if (isomorphicGraph.equals(graph)) {
-        println("HERR")
         general = true
       }
     } else {

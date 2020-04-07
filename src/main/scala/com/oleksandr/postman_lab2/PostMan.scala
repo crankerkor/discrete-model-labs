@@ -65,7 +65,7 @@ class PostMan(graph: Graph) {
 
     if (cycles.length > 1) mergeCycles()
 
-    println(finalCycle)
+    println("Final cycle: " + finalCycle)
 
     finalCycle
   }
